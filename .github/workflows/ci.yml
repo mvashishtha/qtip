@@ -1,5 +1,6 @@
 name: ci
 on:
+  merge_group:
   pull_request:
     paths:
       # NOTE: keep these paths in sync with the paths that trigger the
@@ -16,7 +17,6 @@ on:
       - versioneer.py
 jobs:
   test-all:
-    needs: [lint-flake8, lint-black, lint-mypy, test-api, test-headers]
     runs-on: ubuntu-latest
     defaults:
       run:
